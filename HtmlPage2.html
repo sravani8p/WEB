@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .topnav {
+            overflow: hidden;
+            height: 60px;
+        }
+
+        #header_img {
+            margin-top: 7px;
+            margin-left: 30px
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: absolute;
+            z-index: 1;
+            top: 68px;
+            left: 0;
+            background-color: aliceblue;
+            padding-top: 30px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 15px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+                margin-left: 10px;
+            }
+
+
+        .topnav a {
+            position: absolute;
+            left: 29%;
+            top: 24px;
+            font-size: 13px;
+        }
+
+        #user_icon {
+            width: 27px;
+            float: right;
+            margin-top: 9px;
+        }
+
+        .button {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 8px 57px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 7px 2px;
+        }
+
+        #myBtn {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 8px 57px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 7px 2px;
+        }
+
+        #cars {
+            margin: 13px;
+            margin-right: 35px;
+        }
+
+        #graph {
+            width: 80%;
+            margin-left: 21%;
+            height: auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-left: none;
+            border-right: none;
+            border-collapse: collapse;
+            width: 77%;
+        }
+
+        table, th {
+            font-size: 12px;
+            padding-right: 40px;
+            padding-top: 13px;
+            padding-bottom: 8px;
+        }
+
+        td {
+            font-size: 9px;
+            padding-right: 69px;
+        }
+
+        th {
+            position: relative;
+            left: -15px;
+        }
+
+        .one {
+            border: #F36774;
+            padding: 13%;
+            background-color: #F3677433;
+        }
+
+        .two {
+            border: #FDB84C;
+            padding: 13%;
+            background-color: #FDB84C33;
+        }
+
+        .three {
+            border: #59941B;
+            background-color: #59941B33;
+            padding: 13%;
+        }
+
+        #icons {
+            width: 11%;
+        }
+
+        .pagination {
+            display: inline-block;
+            margin-left: 40%;
+            border: 1px solid;
+            margin-top: 29px;
+        }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+
+        #page {
+            margin-left: 25%;
+            width: 8%;
+        }
+
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 119px;
+            top: -100px;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 78%;
+            border-bottom: none;
+            height: 126%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .container, select {
+            padding: 9px;
+            width: 67%;
+            margin-top: 11px;
+        }
+
+        .container, input {
+            padding: 9px;
+            width: 64%;
+            margin-top: 11px;
+        }
+
+
+        hr {
+            margin-top: 15%;
+        }
+
+        .registerbtn {
+            background-color: blue;
+            color: white;
+            padding: 7px 20px;
+            margin-left: -97px;
+            border: none;
+            cursor: pointer;
+            width: 11%;
+            opacity: 0.9;
+        }
+
+            .registerbtn:hover {
+                opacity: 1;
+            }
+
+        .largebox {
+            margin-left: 85%;
+            margin-top: -40%;
+        }
+
+        .secondary {
+            margin-left: 55%;
+            width: 55%;
+        }
+
+        body {
+            width: 98%;
+        }
+
+        .alignment {
+            display: inline-block;
+            float: right;
+            padding-left: 21px;
+        }
+
+        .cancel {
+            border: blue 1px solid;
+            padding-left: 33px;
+            padding-top: 7px;
+            color: blue;
+        }
+
+        .save {
+            background-color: blue;
+            padding-left: 33px;
+            padding-top: 7px;
+            color: white;
+        }
+
+        label {
+            font-size: 13px;
+        }
+
+        .list-group .labs {
+            background-color: lightskyblue;
+            border: 1px solid blue;
+        }
+
+        .dropbtn {
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-top: 29px;
+            margin-right: 58%;
+            font-size: 12px;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 5px 11px;
+                text-decoration: none;
+                display: block;
+            }
+
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav list-group">
+        <a href="#"><img src="/images/problem statement.png" id="icons" />Problem Statement</a>
+        <a href="#"><img src="/images/project.png" id="icons" /> Projects</a>
+        <a href="#" class="labs"><img src="/images/Labs.png" id="icons" />Labs/</a>
+        <a href="HtmlPage3.html"><img src="/images/Assests.png" id="icons" /> Assets</a>
+        <a href="#"><img src="/images/Courses.png" id="icons" />Courses</a>
+        <a href="#"><img src="/images/customers.jpg" id="icons" />Customers</a>
+        <a href="#"><img src="/images/Settings.png" id="icons" /> Settings</a>
+
+    </div>
+    <div class="topnav">
+        <span style="font-size:30px;cursor:pointer;position:absolute;margin-top:4px" onclick="openNav()">&#9776;</span>
+        <a style="margin-left:-31px">Menu Item1</a>
+        <a style="margin-left:81px">Menu Item2</a>
+        <a style="margin-left:186px">Menu Item3</a>
+        <a style="margin-left:300px">Menu Item4</a>
+        <img src="/images/user_icon.jpg" id="user_icon" />
+        <input style="float:right;margin-top:13px;width:217px" placeholder="search" />
+        <img src="/images/neo logo.jpg" width="170px" height="60px" id="header_img" />
+
+
+    </div>
+
+    <p style="margin-left:22%;font-family:TechnicBold">LABS</p>
+    <div style="display:flex;float:right;margin-top:-4%">
+
+        <p style="font-size:15px;margin-top:16px">Sort by</p>
+        <select name="cars" id="cars">
+            <option value="volvo">Newest</option>
+
+        </select>
+        <button id="myBtn">Add Labs</button>
+
+    </div>
+
+
+    <div>
+        <img src="/images/graphs.jpg" width="170px" height="60px" id="graph" />
+
+    </div>
+    <div>
+        <table style="margin-left:22%">
+
+            <tr>
+                <th>Lab Name</th>
+                <th>Lab Code</th>
+                <th>Assigned to</th>
+                <th>Start Date</th>
+                <th>Estimate End Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Remote monitoring of CNC Machines</a></td>
+                <td>EDD003122</td>
+                <td style="white-space: nowrap;">Stock Photography</td>
+                <td style="white-space: nowrap;">31-01-2021</td>
+                <td style="white-space: nowrap;">31-01-2021</td>
+                <td>  <button class="one">Open</button></td>
+                <td class="dropdown">
+                    <img src="/three-dots.png" class="dropbtn" width="100%" style="float:left;margin-left:-14px" width="100%" />
+                    <div class="dropdown-content">
+                        <a href="#">Assign Problem Statement</a>
+                        <a href="#">Add Notes</a>
+                        <a href="#" style="background-color:blue">Edit</a>
+                        <a href="#">View</a>
+                        <a href="#">Copy</a>
+                        <a href="#">Delete</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Preventive Maintenance of Wind Turbines</a></td>
+                <td>ABCJD8177</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="two">In-Progress</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Production Line Optimization of Texttile Plant</a></td>
+                <td>EEF948811</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="one">Open</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Plant Performance Monitoring using Digital Twin</a></td>
+                <td>IUUR19183</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="three">Closed</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Predctive Analytics of WindFarm</a></td>
+                <td>UEY383731</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="one">Open</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td><a href="">Quality Management using Computer Vision</a></td>
+                <td>EIEU18775</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="two">In-Progress</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Intelligent Video Analytics</a></td>
+                <td>XJDJ18371</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="three">Closed</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Prognostics through simulations</a></td>
+                <td>RUJJ18416</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="three">Closed</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Remote monitoring of CNC Machines</a></td>
+                <td>EUJJ18717</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="one">Open</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap;"><a href="">Remote monitoring of CNC Machines</a></td>
+                <td>RIFJ585718</td>
+                <td>Stock Photography</td>
+                <td>31-01-2021</td>
+                <td>31-01-2021</td>
+                <td>  <button class="two">In-Progress</button></td>
+                <td><img src="/three-dots.png" width="100%" style="margin-left:-14px" /></td>
+            </tr>
+        </table>
+    </div>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+    </div>
+    <select id="page">
+        <option value="volvo">10 / page</option>
+
+    </select>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <div class="container">
+                    <h4 style="color:blue">Add Labs</h4>
+
+                    <label>
+                        Inno Center
+                    </label><br />
+                    <select>
+                        <option value="volvo">Select</option>
+                    </select>
+                    <a style="color:blue">&nbsp;&nbsp; Add Inno Center</a>
+                    <br />
+                    <br />
+                    <label>
+                        Lab Name
+                    </label><br />
+                    <input type="text" placeholder="Type here"><br /><br />
+                    <label>
+                        Lab Code
+                    </label><br />
+                    <input type="text" placeholder="Type here"><br /><br />
+                    <div>
+                        <label>
+                            Assinged to
+                        </label><br />
+                        <select>
+                            <option value="Course">Select</option>
+                        </select><br /><br />
+                    </div>
+
+                    <div>
+                        <label>
+                            Primary Contact
+                        </label><br>
+                        <select>
+                            <option value="Course">Select</option>
+                        </select><br />
+                    </div><br />
+
+                    <label>
+                        Attachement
+                    </label><br />
+                    <input type="text" placeholder="Type here">
+                    <button class="registerbtn">Browser</button>
+                    <br />
+
+                    <div class="largebox">
+                        <label>Lab description</label><br />
+                        <textarea rows="8" cols="48">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="secondary">
+                    <label>
+                        Secondary Contact
+                    </label><br>
+                    <select>
+                        <option value="Course">Select</option>
+                    </select><br />
+                </div>
+                <div>
+                    <hr />
+
+                    <div class="alignment">
+
+                        <button class="cancel">Cancel</button>
+                        <button class="cancel">Save</button>
+                        <button class="save">Submit</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+           document.getElementById("mySidenav").style.width = "250px";
+
+
+            var modal = document.getElementById("myModal");
+
+
+            var btn = document.getElementById("myBtn");
+
+
+            var span = document.getElementsByClassName("close")[0];
+
+
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+
+
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                }
+            }
+    </script>
+</body>
+</html>
+
+
